@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
 	"example.com/TODOLIST-GO-OOP/classes"
 )
 
@@ -47,7 +48,7 @@ func main() {
 			}
 			desc := strings.TrimSpace(scanner.Text())
 
-			fmt.Print("Datum (z.B. 2024-01-10): ")
+			fmt.Print("Datum (z.B. 10-01-2024): ")
 			if !scanner.Scan() {
 				continue
 			}

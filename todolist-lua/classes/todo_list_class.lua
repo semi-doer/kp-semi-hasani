@@ -12,33 +12,55 @@ end
 
 --- Fügt ein neues Item an das Ende der Liste an.
 -- @param description Kurze Beschreibung
--- @param date        Beliebiges Datumsformat
+-- @param date        Datum in Format "DD-MM-YYYY"
 function TodoList:addItem(description, date)
+    if type(date) ~= "string" or not date:match("^%d%d%-%d%d%-%d%d%d%d$") then
+        print("Ungültiges Datum: Das Datum muss im Format 'DD-MM-YYYY' angegeben werden.")
+        return
+    end
+
+    -- Wenn das Format korrekt ist, das Item hinzufügen
     local item = TodoItem:new(description, date)
     table.insert(self.items, item)
 end
 
---- Entfernt den Eintrag an Position `index` aus der Liste.
+
 function TodoList:removeItem(index)
-    if index >= 1 and index <= #self.items then
-        table.remove(self.items, index)
+    if type(index) ~= "number" then
+        print("Ungültiger Index: Der Index muss eine Zahl sein.")
+        return
+    elseif index < 1 or index > #self.items then
+        print("Ungültiger Index: Der Index liegt außerhalb des gültigen Bereichs (1 bis " .. #self.items .. ").")
+        return
     end
+    table.remove(self.items, index)
 end
 
 --- Wechselt den Status eines Items an Position `index` und entfernt es ggf.
 --  Wenn ein offenes Item (completed=false) abgehakt wird (completed=true),
 --  wird es direkt aus der Liste gelöscht.
 function TodoList:toggleItem(index)
-    if index >= 1 and index <= #self.items then
-        local item = self.items[index]
-        local wasCompleted = item.completed
+    if type(index) ~= "number" then
+        print("Ungültiger Index: Der Index muss eine Zahl sein.")
+        return
+    elseif index < 1 or index > #self.items then
+        print("Ungültiger Index: Der Index liegt außerhalb des gültigen Bereichs (1 bis " .. #self.items .. ").")
+        return
+    end
 
-        item:toggleCompleted()  -- schaltet von false->true oder true->false
+    local item = self.items[index]
+    if not item or type(item.toggleCompleted) ~= "function" then
+        print("Ungültiges Element an Index " .. index .. ": Erwartet wurde ein Objekt mit einer `toggleCompleted`-Methode.")
+        return
+    end
 
-        -- Entfernungs-Logik: Sobald ein Item von "offen" auf "erledigt" wechselt.
-        if (not wasCompleted) and item.completed then
-            table.remove(self.items, index)
-        end
+    local wasCompleted = item.completed
+
+    item:toggleCompleted()  -- Schaltet von false->true oder true->false
+
+    -- Entfernt das Item, wenn es von "offen" zu "erledigt" wechselt
+    if (not wasCompleted) and item.completed then
+        table.remove(self.items, index)
     end
 end
 

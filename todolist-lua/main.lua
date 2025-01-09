@@ -29,7 +29,7 @@ local function addItem()
         print("Fehler: Beschreibung darf nicht leer sein!\n")
         return
     end
-    io.write("Datum eingeben (z.B. 2024-01-10): ")
+    io.write("Datum eingeben (z.B. 10.01.2024): ")
     local dat = io.read("*l")
     myTodoList:addItem(desc, dat or "")
     print("Todo hinzugefuegt!\n")
@@ -61,8 +61,8 @@ end
 
 local function main()
     -- Füge ein paar Test-Einträge hinzu
-    myTodoList:addItem("Praesentation vorbereiten", "2024-01-10")
-    myTodoList:addItem("Kapitel lesen", "2024-01-15")
+    myTodoList:addItem("Praesentation vorbereiten", "10-01-2024")
+    myTodoList:addItem("Kapitel lesen", "15-01-2024")
 
     while true do
         print("Menue:")
