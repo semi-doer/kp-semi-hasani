@@ -28,6 +28,7 @@ Ziel ist es, die **OOP-Konzepte** beider Sprachen zu vergleichen, indem man zwei
     Dort sollten folgende Dateien liegen:
 - `classes/todo_item_class.lua`
 - `classes/todo_list_class.lua`
+- `test/test_todolist.lua`
 - `main_console.lua`
 
 2. **Optional: UTF-8 in Windows-Terminal**  
