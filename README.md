@@ -33,7 +33,7 @@ Ziel ist es, die **OOP-Konzepte** beider Sprachen zu vergleichen, indem man zwei
 
 2. **Optional: UTF-8 in Windows-Terminal**  
 Unter Windows kann es sein, dass Umlaute oder Sonderzeichen (z. B. aus Busted) falsch dargestellt werden.  
-Deshalb sollte die Codepage temporär auf UTF-8 umsgestellt werden mit folgendem Befehl:
+Deshalb sollte die Codepage temporär auf UTF-8 umgestellt werden mit folgendem Befehl:
     ```
     chcp 65001
     ```
