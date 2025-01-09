@@ -3,8 +3,7 @@
 Dieses Projekt demonstriert eine **Todo-Liste** in **zwei Sprachen**:
 
 1. **Lua**  
-   - Als reine **Konsolenanwendung** (Eingabe und Ausgabe über das Terminal).  
-   - Optionale **Love2D**-Variante für eine grafische Oberfläche (ausgelagert).  
+   - Als reine **Konsolenanwendung** (Eingabe und Ausgabe über das Terminal).
    - **Unit-Tests** mit [Busted](https://lunarmodules.github.io/busted/) sind enthalten.
 
 2. **Go**  
@@ -58,8 +57,7 @@ Um die Todo-Liste im Terminal zu starten, wird folgender Befehl benötigt:
 ## 2) Go Todo-Liste
 
 ### Anforderungen
-- **Go** installiert (Version 1.18 oder höher)
-- Eine gültige `go.mod`-Datei im Projektverzeichnis (Go-Modul)
+- **Go** installiert 
 
 ### Setup
 
