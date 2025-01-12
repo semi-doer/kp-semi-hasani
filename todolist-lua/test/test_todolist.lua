@@ -1,10 +1,11 @@
+package.path = package.path .. ";../?.lua"
 local TodoList = require("classes.todo_list_class")
 
 describe("TodoList", function()
   
   it("sollte neue Items hinzufügen können", function()
     local tl = TodoList:new()
-    tl:addItem("Test-Item 1", "2024-01-01")
+    tl:addItem("Test-Item 1", "01-01-2024")
     assert.are.equal(1, #tl.items)
     assert.are.equal("Test-Item 1", tl.items[1].description)
     assert.are.equal(false, tl.items[1].completed)
@@ -12,8 +13,8 @@ describe("TodoList", function()
 
   it("sollte Items entfernen können", function()
     local tl = TodoList:new()
-    tl:addItem("Item1", "2024-01-02")
-    tl:addItem("Item2", "2024-01-03")
+    tl:addItem("Item1", "01-01-2024")
+    tl:addItem("Item2", "01-01-2024")
     
     tl:removeItem(1)  -- Erstes Element löschen
     assert.are.equal(1, #tl.items)
@@ -22,7 +23,7 @@ describe("TodoList", function()
 
   it("sollte den Toggle-Status setzen und das Item ggf. löschen", function()
     local tl = TodoList:new()
-    tl:addItem("ToggleMe", "2024-01-04")
+    tl:addItem("ToggleMe", "01-01-2024")
     
     -- Toggle führt von `false` -> `true` und löscht das Item direkt
     tl:toggleItem(1)
