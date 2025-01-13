@@ -52,7 +52,7 @@ Um die Todo-Liste im Terminal zu starten, wird folgender Befehl benötigt:
 - Als nächstes muss in das `test` Verzeichnis navigiert werden.
 - Dort muss dann folgender Befehl ausgeführt werden um die Tests zu starten:
     ```
-    busted test/
+    busted test_todolist.lua
     ```
 
 ## 2) Go Todo-Liste
